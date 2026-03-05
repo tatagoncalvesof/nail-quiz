@@ -763,23 +763,16 @@
                     ${results[level].body}
                 </div>
 
-                <div class="vsl-section">
-                    <div class="vsl-intro">EXCLUSIVE VIDEO FOR YOUR LEVEL</div>
-                    <div class="vsl-headline">Dr. Whitfield Reveals the Cherokee Antifungal Protocol</div>
-
-                    <ul class="vsl-bullets">
-                        <li><strong>Why</strong> your nail fungus keeps coming back (it's NOT what you think)</li>
-                        <li><strong>The hidden infection</strong> inside your germinal matrix no cream can reach</li>
-                        <li><strong>The ancient Cherokee ritual</strong> that 47,382 people used to eliminate fungus at the root</li>
-                    </ul>
-
-                    <div class="vsl-video-wrapper">
-                        <!-- REPLACE with your actual VSL embed code from Converteai -->
-                        <iframe src="${vslURL}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <div class="vsl-section" style="padding:0;background:transparent;border:none;">
+                    <div class="vsl-video-wrapper" style="margin:0;">
+                        <iframe id="vsl-iframe" src="${vslURL}" allow="autoplay; fullscreen" allowfullscreen></iframe>
                     </div>
 
-                    <div class="vsl-urgency">
-                        &#9888; This video is time-sensitive and may be removed due to pharmaceutical industry pressure.
+                    <div id="cta-wrapper" style="display:none;margin-top:24px;text-align:center;animation:fadeIn 0.5s ease;">
+                        <a href="https://escalify-health.mycartpanda.com/checkout?afid=UmToY7DoRG&cid={clickid}" class="cta-button" style="display:inline-block;text-decoration:none;">
+                            GET THE PROTOCOL NOW
+                        </a>
+                        <div class="cta-sub">Limited availability — Secure your spot today</div>
                     </div>
                 </div>
             `;
@@ -790,6 +783,15 @@
 
             // Smooth scroll to result
             screen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Show CTA button after 30:09 (1809 seconds)
+            setTimeout(function() {
+                var cta = document.getElementById('cta-wrapper');
+                if (cta) {
+                    cta.style.display = 'block';
+                    cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 1809 * 1000);
         }
     </script>
 
